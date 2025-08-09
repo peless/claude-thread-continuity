@@ -214,7 +214,7 @@ class ProjectState:
             temp_file = state_file.with_suffix(".tmp")
             with open(temp_file, 'w', encoding='utf-8') as f:
                 json.dump(state_data, f, indent=2, ensure_ascii=False)
-            temp_file.rename(state_file)
+            temp_file.replace(state_file)
             
             # Create backup
             backup_file = project_dir / f"backup_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
